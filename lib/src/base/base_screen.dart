@@ -2,44 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:mercado/src/home/home_tab.dart';
 
 class BaseScreen extends StatefulWidget {
-   BaseScreen({Key? key}) : super(key: key);
+  const BaseScreen({Key? key}) : super(key: key);
 
   @override
   State<BaseScreen> createState() => _BaseScreenState();
 }
 
 class _BaseScreenState extends State<BaseScreen> {
-
   int currentIndex = 0;
-  final pageController = PageController(
-
-  );
-
+  final pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      body:PageView(
+      body: PageView(
         physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
-
         children: [
-
-          const HomeTab(),
+          HomeTab(),
           Container(color: Colors.yellow),
           Container(color: Colors.blue),
           Container(color: Colors.purple),
-
         ],
       ),
-
-
-
-
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
-        onTap: (index){
+        onTap: (index) {
           setState(() {
             currentIndex = index;
             pageController.jumpToPage(index);
@@ -66,9 +54,6 @@ class _BaseScreenState extends State<BaseScreen> {
             icon: Icon(Icons.person_outline),
             label: 'perfil',
           ),
-
-
-
         ],
       ),
     );
