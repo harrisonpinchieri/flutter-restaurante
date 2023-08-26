@@ -1,26 +1,24 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mercado/src/config/custom_colors.dart';
+import 'package:mercado/src/config/app_data.dart' as appData;
 
 import 'components/category_tile.dart';
 
-class HomeTab extends StatelessWidget {
-  HomeTab({Key? key}) : super(key: key);
+class HomeTab extends StatefulWidget {
+  const HomeTab({Key? key}) : super(key: key);
 
-  List<String> categories = [
-    'Frutas',
-    'Grãos',
-    'Verduras',
-    'Temperos',
-    'Cereais',
-  ];
+  @override
+  State<HomeTab> createState() => _HomeTabState();
+}
 
+class _HomeTabState extends State<HomeTab> {
   String selectedCategory = 'Frutas';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //app bar
+      //! app bar
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0, //sombra
@@ -70,7 +68,7 @@ class HomeTab extends StatelessWidget {
         ],
       ),
 
-      //campo de pesquisa
+      //! campo de pesquisa
       body: Column(
         children: [
           Padding(
@@ -102,7 +100,8 @@ class HomeTab extends StatelessWidget {
               ),
             ),
           ),
-          // categorias
+
+          //! categorias
           Container(
             padding: const EdgeInsets.only(left: 25),
             height: 40,
@@ -110,13 +109,18 @@ class HomeTab extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemBuilder: (_, index) {
                 return CategoryTile(
-                  category: categories[index],
-                  isSelected: categories[index] == selectedCategory,
+                  onPressed: () {
+                    setState(() {
+                      selectedCategory = appData.categories[index];
+                    });
+                  },
+                  category: appData.categories[index],
+                  isSelected: appData.categories[index] == selectedCategory,
                 );
               },
               separatorBuilder: (_, index) => const SizedBox(
                   width: 10), // _ contexto que não esta utilizando
-              itemCount: categories.length,
+              itemCount: appData.categories.length,
             ),
           ),
         ],

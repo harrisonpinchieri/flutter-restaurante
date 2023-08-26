@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mercado/assets/colors.dart';
-import 'package:mercado/src/auth/sign_in_screen.dart';
-import 'package:mercado/src/config/custom_colors.dart';
+import 'package:mercado/src/pages/auth/sign_in_screen.dart';
 
 void main() {
   runApp(const MyApp());

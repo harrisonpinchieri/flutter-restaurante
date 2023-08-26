@@ -1,11 +1,9 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:mercado/assets/colors.dart';
-import 'package:mercado/src/auth/components/custom_text_field.dart';
-import 'package:mercado/src/auth/sign_up_screen.dart';
-import 'package:mercado/src/base/base_screen.dart';
+import 'package:mercado/src/pages/auth/components/custom_text_field.dart';
+import 'package:mercado/src/pages/auth/sign_up_screen.dart';
+import 'package:mercado/src/pages/base/base_screen.dart';
 import 'package:mercado/src/config/custom_colors.dart';
-import 'dart:ui' show lerpDouble;
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
